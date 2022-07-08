@@ -1,0 +1,9 @@
+---
+- hosts: kode
+  tasks:
+    - name: Add users
+      user: name={{ item.name }} state=present groups=sudo
+      with_items:
+        - { name: 'user1'}
+        - { name: 'user2'}
+      sudo: yes
